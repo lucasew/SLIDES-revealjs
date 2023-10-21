@@ -58,7 +58,7 @@ pkgs.mkShell {
 ---
 ## Funciona embed
 
-<iframe width="420" height="315" allowfullscreen src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0">
+<iframe width="420" height="315" allowfullscreen src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=0">
 </iframe>
 
 ---
