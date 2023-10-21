@@ -1,0 +1,12 @@
+DefaultContentLanguage: pt
+# minify:
+#   minifyOutput: true
+imaging:
+  exif:
+    disableDate: true
+    disableLatLong: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
