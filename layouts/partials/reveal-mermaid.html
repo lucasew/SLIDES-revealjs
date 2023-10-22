@@ -15,15 +15,15 @@
         }
         mermaidElems.forEach(mermaidElem => {
             let processed = mermaidElem.getAttribute('data-processed');
-            if (!processed){
-                // https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344
-                requestAnimationFrame(() => {
-                    mermaid.init(undefined, mermaidElem);
-                })
-            }
+            // https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344
+            requestAnimationFrame(() => {
+                mermaid.init(undefined, mermaidElem);
+            })
         });
     };
     Reveal.on('slidechanged', render);
+    Reveal.on('slidetransitionend', render);
+    Reveal.on('resize', render);
     Reveal.on('ready', render);
 
 
