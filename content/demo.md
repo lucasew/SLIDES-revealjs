@@ -104,14 +104,31 @@ margin: auto;
 
 %auto-animate%
 
-# Animações
+## Animações
 
 <img class="block" style="background-color: red"></img>
 
 ---
 %auto-animate%
 
-# Animações
+## Animações
 
 <img class="block" style="background-color: blue; margin-top: 100px"></img>
 
+---
+
+## E GIFs
+
+<img src="{{< vendor "https://steamuserimages-a.akamaihd.net/ugc/2480808807594637252/11119ACEA65BD9BE6A94AC9DEA436C0805BC2566/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" >}}" />
+
+---
+
+## E templates?
+
+{{% eval.inline %}}
+isso foi gerado em tempo de build: {{ now.Format "2006.01.02" }}
+{{< /eval.inline >}}
+
+{{% identity.inline %}}
+isso foi gerado em tempo de build: {{ now.Format "2006.01.02" }}
+{{% /identity.inline %}}

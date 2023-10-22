@@ -1,0 +1,4 @@
+{{ $f := printf "%s.txt" (.Inner | md5) }}
+<script>alert("{{$f}}")</script>
+{{ $r := .Inner | resources.ExecuteAsTemplate $f . }}
+{{ return $r.Content }}

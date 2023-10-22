@@ -10,3 +10,4 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+enableInlineShortcodes: true
