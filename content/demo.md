@@ -41,7 +41,7 @@ public class Main {
 pkgs.mkShell {
     buildInputs = with pkgs; [ hugo ];
 }
-// Fun fact: o próprio Hugo faz o syntax highlight
+# Fun fact: o próprio Hugo faz o syntax highlight
 ```
 
 ---
