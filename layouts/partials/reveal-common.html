@@ -17,20 +17,13 @@
 <script src="{{ .RelPermalink }}"></script>
 {{ end }}
 
-{{ with printf "%s/%s" $revealBaseURL "plugin/highlight/monokai.css" | resources.GetRemote }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" />
-{{ end }}
-
-{{ with printf "%s/%s" $revealBaseURL "plugin/highlight/highlight.js" | resources.GetRemote }}
-<script src="{{ .RelPermalink }}"></script>
-{{ end }}
-
-{{ with printf "%s/%s" $revealBaseURL "plugin/markdown/markdown.js" | resources.GetRemote }}
-<script src="{{ .RelPermalink }}"></script>
-{{ end }}
-
+{{ with .Params.reveal.notes }}
 {{ with printf "%s/%s" $revealBaseURL "plugin/notes/notes.js" | resources.GetRemote }}
 <script src="{{ .RelPermalink }}"></script>
+<script>
+    delete REVEAL_OPTS.__frontmatter['notes']
+</script>
+{{ end }}
 {{ end }}
 
 {{ with printf "%s/%s" $revealBaseURL "plugin/search/search.js" | resources.GetRemote }}

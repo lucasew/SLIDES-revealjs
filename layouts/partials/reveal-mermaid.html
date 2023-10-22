@@ -1,3 +1,5 @@
+{{ if .Page.Store.Get "__usingMermaid" }}
+
 {{ with resources.GetRemote "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" }}
   <script type="text/javascript" src="{{ .RelPermalink }}"></script>
 {{ end }}
@@ -7,6 +9,7 @@
 
     let render = (event) => {
         let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+        console.log('mermaidElems', mermaidElems)
         if (!mermaidElems.length){
             return
         }
@@ -22,5 +25,9 @@
     };
     Reveal.on('slidechanged', render);
     Reveal.on('ready', render);
+
+
 })()
 </script>
+
+{{ end }}

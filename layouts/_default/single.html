@@ -15,6 +15,10 @@
 
 {{- $content := replace $content "<p>%auto-animate%</p>" "<script>document.currentScript.parentNode.setAttribute('data-auto-animate', '1');</script>" -}}
 
+{{ if strings.Contains $content "$$" }}
+{{ .Page.Store.Set "__usingMath" true }}
+{{ end }}
+
 <div class="reveal">
     <div class="slides">
         <!-- Split the processed content by <hr /> tag -->
@@ -27,20 +31,29 @@
     </div>
 </div>
 
-{{ partial "reveal-common.html" }}
-{{ partial "reveal-mermaid.html" }}
-{{ partial "reveal-katex.html" }}
+<script>
+    window.REVEAL_OPTS = {
+        controls: true,
+        progress: true,
+        slideNumber: true,
+        history: true,
+        center: true,
+        hash: true,
+        plugins: [],
+        __frontmatter: FRONTMATTER.reveal || {}
+    }
+</script>
+
+{{ partial "reveal-common.html" . }}
+{{ partial "reveal-mermaid.html" . }}
+{{ partial "reveal-katex.html" . }}
+
 {{ partial "logo.html" . }}
 
 <script>
-Reveal.initialize({
-    controls: true,
-    progress: true,
-    center: true,
-    hash: true,
-
-    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-});
+console.log("reveal opts", REVEAL_OPTS)
+Object.assign(REVEAL_OPTS, REVEAL_OPTS.__frontmatter)
+Reveal.initialize(REVEAL_OPTS);
 </script>
 
 {{- end -}}

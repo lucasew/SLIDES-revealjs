@@ -3,6 +3,8 @@ title: Demonstração das funcionalidades
 logo:
     src: https://blog-do-lucao.vercel.app/apple-touch-icon.png
     alt: Lucão
+reveal:
+    a: 2
 ---
 
 # Demonstração dos testes usando Reveal e Hugo
@@ -39,6 +41,7 @@ public class Main {
 pkgs.mkShell {
     buildInputs = with pkgs; [ hugo ];
 }
+// Fun fact: o próprio Hugo faz o syntax highlight
 ```
 
 ---
@@ -47,6 +50,24 @@ pkgs.mkShell {
 
 - $$x^2$$
 - $$\frac{-b \pm \sqrt{b^2 -4ac}}{2a}$$
+
+---
+
+## Funciona mermaid
+
+{{<mermaid align="left">}}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+{{</mermaid>}}
 
 ---
 

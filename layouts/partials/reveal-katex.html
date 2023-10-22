@@ -1,5 +1,7 @@
 {{ $katexVersion := "0.13.11" }}
 
+{{ if .Page.Store.Get "__usingMath" }}
+
 {{ with printf "https://cdn.jsdelivr.net/npm/katex@%s/dist/katex.min.css" $katexVersion | resources.GetRemote  }}
 
 <link rel="stylesheet" href="{{ .RelPermalink }}" />
@@ -24,5 +26,7 @@
         }
         Reveal.on('slidechanged', render)
         Reveal.on('ready', render)
-    })()
+    })();
 </script>
+
+{{ end }}
